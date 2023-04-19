@@ -3,6 +3,7 @@ package br.com.fiap.MJV.controller;
 import br.com.fiap.MJV.entity.Cliente;
 import br.com.fiap.MJV.entity.Produto;
 import br.com.fiap.MJV.error.ClieteNotFoundException;
+import br.com.fiap.MJV.error.ProdutoNotFoundException;
 import br.com.fiap.MJV.repository.ProdutoRepository;
 import br.com.fiap.MJV.service.ClienteService;
 import br.com.fiap.MJV.service.ProdutoService;
@@ -48,9 +49,8 @@ public class ClienteController {
     }
 
     @PutMapping("/api/v1/cliente/{id}")
-    public Cliente updateCliente(@PathVariable("id") Long id, @RequestBody Cliente cliente) throws ClieteNotFoundException {
+    public Cliente updateCliente(@PathVariable("id") Long id, @RequestBody Cliente cliente) throws ClieteNotFoundException, ProdutoNotFoundException {
         return clienteService.updateCliente(id, cliente);
     }
-
 
 }
