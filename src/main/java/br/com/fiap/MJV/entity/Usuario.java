@@ -18,7 +18,6 @@ public class Usuario {
     private String nome;
 
     @NotBlank
-    @Length(max = 11)
     private String cpf;
 
     @NotNull

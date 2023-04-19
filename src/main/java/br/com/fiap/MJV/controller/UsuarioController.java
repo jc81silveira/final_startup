@@ -53,4 +53,18 @@ public class UsuarioController {
         return usuarioService.updateUsuario(id, usuario);
     }
 
+    @GetMapping("/api/v1/usuario/{id}/produto/{nome}")
+    public String adicionaProdutoAoSaldo(@PathVariable Long id, @PathVariable String nome) throws UsuarioNotFoundException {
+        Usuario usuarioBanco = usuarioService.getUsuarioById(id);
+        Produto produtoBanco = produtoService.findNomeProdutoIgnoreCase(nome);
+        Double saldoAnterior = usuarioBanco.getSaldo().doubleValue();
+
+        Double novoSaldo = saldoAnterior + produtoBanco.getPreco().doubleValue();
+
+        String saldoBefore = "O usuário: " + usuarioBanco.getNome() + " possuia um saldo de R$ " + saldoAnterior
+                + "\nAgora ele tem um saldo de R$ " + novoSaldo + ".\nApós ter inserido o produto: " + nome;
+
+        return saldoBefore;
+    }
+
 }

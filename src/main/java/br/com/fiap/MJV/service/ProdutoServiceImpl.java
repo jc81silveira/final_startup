@@ -67,4 +67,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     }
 
+    @Override
+    public Produto findNomeProdutoIgnoreCase(String nome) {
+        return produtoRepository.findByNomeProdutoIgnoreCase(nome);
+    }
+
 }

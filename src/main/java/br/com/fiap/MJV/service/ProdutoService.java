@@ -17,4 +17,6 @@ public interface ProdutoService {
     void deletaProdutoById(Long id);
 
     Produto updateProduto(Long id, Produto produto) throws ProdutoNotFoundException;
+
+    Produto findNomeProdutoIgnoreCase(String nome);
 }
