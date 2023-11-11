@@ -19,6 +19,12 @@ public class Cliente {
     @NotBlank
     private String cnpj;
 
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String password;
+
     @OneToMany(mappedBy = "cliente")
     private List<Produto> produto;
 
@@ -26,10 +32,12 @@ public class Cliente {
         super();
     }
 
-    public Cliente(Long id, String nomeCliente, String cnpj, List<Produto> produto) {
+    public Cliente(Long id, String nomeCliente, String cnpj, String email, String password, List<Produto> produto) {
         this.id = id;
         this.nomeCliente = nomeCliente;
         this.cnpj = cnpj;
+        this.email = email;
+        this.password = password;
         this.produto = produto;
     }
 
@@ -63,5 +71,21 @@ public class Cliente {
 
     public void setProduto(List<Produto> produto) {
         this.produto = produto;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
