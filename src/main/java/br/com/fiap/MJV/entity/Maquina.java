@@ -8,33 +8,33 @@ import org.hibernate.validator.constraints.Length;
 import java.math.BigDecimal;
 
 @Entity
-public class Usuario {
+public class Maquina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
     @Length(max = 50, min = 3)
-    private String nome;
+    private String local;
 
     @NotBlank
-    private String cpf;
+    private String numero_serie;
 
     @NotNull
-    private BigDecimal saldo;
+    private BigDecimal quantidade;
 
     @OneToOne
     private Produto produto;
 
-    public Usuario() {
+    public Maquina() {
         super();
     }
 
-    public Usuario(Long id, String nome, String cpf, BigDecimal saldo, Produto produto) {
+    public Maquina(Long id, String nome, String numero_serie, BigDecimal quantidade, Produto produto) {
         this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.saldo = saldo;
+        this.local = nome;
+        this.numero_serie = numero_serie;
+        this.quantidade = quantidade;
         this.produto = produto;
     }
 
@@ -46,28 +46,28 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getLocal() {
+        return local;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getNumero_serie() {
+        return numero_serie;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNumero_serie(String numero_serie) {
+        this.numero_serie = numero_serie;
     }
 
-    public BigDecimal getSaldo() {
-        return saldo;
+    public BigDecimal getQuantidade() {
+        return quantidade;
     }
 
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
     }
 
     public Produto getProduto() {
